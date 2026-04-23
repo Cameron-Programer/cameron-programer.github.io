@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Road Traffic Collision</title>
+    <link rel="icon" href="images/icon.png" type="image/png" sizes="24x24">
+    <!--TODO: Replace with no-copyright icon before submition -->
+
+    <link rel="stylesheet" href="styles.css">
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css">
+
+    <!-- This script and link is from the leaflet tutorial -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+    <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
+
+    <!-- This script and link is from the leaflet tutorial -->
+
+</head>
+
+<body>
+    <div id="map"> <!--essential to be below header for formatting (layering) purposes-->
+        <script src="scripts/map.js"></script>
+        <script id="OdbToMapSc" src="scripts/obd-to-mapsc.js"></script>
+        <script id="OdbApi" src="scripts/odb-api.js"></script>
+    </div>
+    <div id="newtab" style="right: -99.9%;">
+        <div id="newtabbutton">
+            <p><</p>
+        </div>
+        <div id="newtabcontent">
+            <h1>Acknowledgements</h1>
+            <p>
+                Many thanks to the follow people and teams:<br>
+                - Volodymyr Agafonkin and the Leaflet maintainers<br>
+                - The Leaflet.markercluster maintainers<br>
+                - The Open Street Maps contributors<br>
+                - The Open Street Maps France association for hosting the HOT map tiles<br>
+                - The Open Street Maps Humanitarian Team for creating the HOT map tiles<br>
+                - Bristol City Council for creating the Open Data Bristol API <br>
+                - Avon and Somerset Police for collecting the data<br>
+                - Dr. Priya Gopal and Dr Steve Battle for teaching us how to do this<br>
+                <br>
+                <b>This project is not endorsed by or affiliated with any of the above teams or people.</b>
+            </p>
+            ------------------------------------------------------------------------------------------------------<br>
+
+            Project by students on the Software Engineering course at <a href="https://courses.uwe.ac.uk/6F3B/software-engineering"><img src="images/UweLogo.svg" alt="UWE Bristol" width="50"></a>
+        </div>
+
+
+
+        </p>
+        <div id="shadhide"></div>
+        <p>
+        </p>
+        <script src="scripts/sidebar.js"></script>  
+    </div>
+    <header>
+        <h1 style="text-align: center">Road Traffic Collision.</h1>
+        <!-- Removed until I can create the list, might end up repurposing this to point to the heatmap since that-
+            is more in line with the requirements.
+
+            <div id="NavButtons">
+                <a href="List.html"><button class="w3-grey">List</button></a>
+                <button class="w3-dark-grey">Map</button>
+            </div>
+            -->
+        <form style="text-align: center" id="filter">
+            <select name="severity" class="w3-border-sand w3-padding-small">
+                <option value="0">Severity</option>
+                <option value="Fatal">Fatal</option>
+                <option value="Serious">Serious</option>
+                <option value="Slight">Minor</option>
+            </select>
+
+            <select name="Mode" class="w3-border-sand w3-padding-small" id="mode">
+                <option value="0">Mode</option>
+                <option value="CARS">Car</option>
+                <option value="CYC">Cycle</option>
+                <option value="MCYC">M-Cycle</option>
+                <option value="Pedestrians">Pedestrian</option>
+            </select>
+
+            <div class="slidercontainer">
+                <input class="sliderchild" type="range" min="-100" max="100" value="-100" step="1" id="timeslider">
+                <p class="sliderchild" id="timelabel"> 02/01/2020 </p>
+                <script id="slidetimeupdater" src="scripts/slidetimeupdater.js"></script>
+            </div>
+
+            <button type="submit">🔎</button>
+        </form>
+    </header>
+
+    <footer>
+        <p>
+            Your safety on the road is <b>your responsibility</b>, always follow the <a
+                href="https://www.gov.uk/guidance/the-highway-code">highway code</a> when using the highway's. <b>Don't
+                end up on this map.</b>
+        </p>
+        <p style="font-size: 13px;">
+            ©<a href="mailto:Cameron2.Mackie@live.uwe.ac.uk"><span>Cameron Mackie</span></a> | ©<a
+                href="mailto:Ninsang2.Sherpa@live.uwe.ac.uk"><span>Ninsang Sherpa</span></a><br>
+            A project by first year <a href="https://courses.uwe.ac.uk/6F3B/software-engineering">Software
+                Engineering</a> students at the <a href="https://www.uwe.ac.uk">University of the West of England
+                (UWE)</a><br>
+            ©<a href="https://opendata.bristol.gov.uk">2026 Open Data Bristol</a> <a
+                href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">(OGLv3)</a> | ©<a
+                href="https://www.openstreetmap.org/copyright">OpenStreetMap(OSM) contributors</a> | Tiles by <a
+                href="https://www.hotosm.org/">Humanitarian OSM Team</a> hosted by <a
+                href="https://openstreetmap.fr/">OSM France</a> | <a href="https://leafletjs.com/">Leaflet 🇺🇦</a><br>
+        </p>
+    </footer>
+</body>
+
+</html>
